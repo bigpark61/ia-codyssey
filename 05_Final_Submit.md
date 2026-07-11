@@ -1,0 +1,216 @@
+
+## 프로젝트 개요
+
+- **프로젝트명**: LUMEN DROP 브랜드 광고 제작
+- **브랜드명**: LUMEN DROP
+- **광고 길이**: 10초
+- **제작 목적**: 인지
+- **산출물**:
+    - 스토리보드 PDF 1개
+    - 광고 영상 MP4 1개
+
+---
+
+## 브랜드 아이덴티티
+
+- **브랜드명**: LUMEN DROP
+- **브랜드 유형**: 가상 브랜드
+- **제품 설명**: 야간 루틴용 무카페인 기능성 드링크
+- **타겟**: 늦은 밤까지 일하거나 공부한 뒤, 잠들기 전 자신만의 루틴을 만들고 싶은 20~30대
+- **톤앤매너**: 미니멀, 프리미엄, 나이트 루틴, 차분한 시네마틱
+- **USP(차별점)**: “에너지를 올리는 음료”가 아니라 “하루를 정리하는 감정적 루틴”을 제안하는 브랜드
+- **캠페인 목표**: 브랜드 인지 형성
+- **핵심 메시지(한 문장)**: **“하루의 끝을 정리하는 한 방울의 루틴.”**
+- **CTA 문구**: **Tonight, reset with LUMEN DROP**
+
+---
+
+## 제작 전략 요약
+
+이번 광고는 10초 이내 분량이므로, 긴 설명보다 **감정 훅 → 제품 등장 → 가치 전달 → 브랜드 인지**의 4씬 구조로 설계한다.  
+또한 영상 생성 비용과 재시도 리스크를 줄이기 위해, 먼저 **스타일이 통일된 키 이미지를 생성한 뒤 짧은 모션 영상으로 전환**하는 방식을 사용한다.
+
+브랜드명과 CTA는 생성 이미지 안에 직접 완전히 의존하기보다, **최종 편집 단계에서 텍스트 오버레이로 넣는 전략**을 사용한다. 이는 OpenAI 공식 이미지 가이드가 GPT Image 계열의 텍스트 렌더링이 많이 개선되었지만, 여전히 정확한 텍스트 배치와 선명도에는 한계가 있을 수 있다고 설명하기 때문이다. [OpenAI API Documentation](https://developers.openai.com/api/docs/guides/image-generation)
+
+영상 생성은 짧은 광고 컷 제작에 적합한 멀티모달 비디오 모델을 우선 사용하고, 필요 시 프레임 제어나 확장 기능이 강한 대안 모델을 준비한다. Google 공식 문서에 따르면 Gemini Omni Flash는 빠른 짧은 영상 생성과 멀티턴 편집에 적합하고, Veo 3.1은 네이티브 오디오, 확장, 프레임 제어에 강점이 있다. [ai.google.dev](https://ai.google.dev/gemini-api/docs/video)
+
+내레이션은 짧지만 감정이 살아 있어야 하므로, 자연스러운 억양과 속도 조절이 가능한 TTS 도구를 사용한다. ElevenLabs는 공식적으로 nuanced intonation, pacing, emotional awareness를 강조하고 있어 짧은 광고 내레이션에 적합하다. [elevenlabs.io](https://elevenlabs.io/docs/overview/capabilities/text-to-speech)
+
+---
+
+## 씬 구성 요약표
+
+|씬 번호|길이(초)|목표 메시지|화면 핵심|오디오 핵심|결과 파일명|
+|---|---|---|---|---|---|
+|Scene 01|2.0|지친 밤의 감정 공감|어두운 책상, 늦은 밤, 피로한 손|낮은 패드음 + 짧은 내레이션|LD_s01_key.png / LD_s01_motion.mp4|
+|Scene 02|2.5|제품의 첫 등장|캔 제품 히어로샷, 은은한 조명|내레이션 연결|LD_s02_key.png / LD_s02_motion.mp4|
+|Scene 03|2.5|감정적 가치 전달|한 모금 후 안정되는 분위기|따뜻한 문장, 잔잔한 효과음|LD_s03_key.png / LD_s03_motion.mp4|
+|Scene 04|3.0|브랜드 인지 및 CTA|제품+로고+슬로건 엔드카드|브랜드명 강조 내레이션|LD_s04_endcard.png / LD_final.mp4|
+
+총 길이: **10.0초**
+
+---
+
+## 씬별 상세 스토리보드
+
+---
+
+### Scene 01
+
+- **씬 번호 / 씬 길이(초)**: Scene 01 / 2.0초
+- **목표 메시지(한 문장)**: 바쁜 하루 끝의 피로와 정리되지 않은 감정을 공감시키는 장면
+- **화면 구성(구도/피사체/배경/텍스트 유무)**:  
+    탑뷰에 가까운 사선 구도, 늦은 밤의 책상 위 노트북 불빛, 정리되지 않은 메모와 컵, 피로한 손이 화면에 들어옴. 텍스트는 없음.
+- **내레이션(또는 화면 카피)**:  
+    “길었던 하루가, 아직 끝나지 않았다면.”
+- **사용 도구(이미지/비디오/오디오)와 사용 목적**:
+    - 이미지 생성: 첫 감정 훅에 맞는 키 비주얼 생성
+    - 비디오 생성/변환: 정지 이미지를 2초 모션 컷으로 전환
+    - 오디오 생성(TTS): 차분한 도입 내레이션 생성
+- **입력 프롬프트(원문)**:  
+    `night desk scene, tired hand near laptop glow, minimal premium mood, dark navy background, soft practical light, cinematic ad frame, shallow depth of field, realistic product commercial style, 16:9`
+- **출력 결과 요약(한 줄)**:  
+    피로한 야간 분위기와 프리미엄 톤이 동시에 드러나는 도입 컷 확보
+- **생성 결과 파일명 또는 링크**:  
+    `LD_s01_key.png`  
+    `LD_s01_motion.mp4`  
+    `LD_narration_01.wav`
+
+---
+
+### Scene 02
+
+- **씬 번호 / 씬 길이(초)**: Scene 02 / 2.5초
+- **목표 메시지(한 문장)**: 제품이 단순 음료가 아니라 ‘루틴의 시작점’으로 보이게 하기
+- **화면 구성(구도/피사체/배경/텍스트 유무)**:  
+    중앙 구도의 제품 히어로샷. 검은 반사 테이블 위에 캔이 놓여 있고, 배경은 블루-퍼플 톤의 부드러운 빛. 텍스트 없음.
+- **내레이션(또는 화면 카피)**:  
+    “당신의 밤을 다시 정리하는 작은 시작.”
+- **사용 도구(이미지/비디오/오디오)와 사용 목적**:
+    - 이미지 생성: 제품 존재감이 강한 히어로컷 생성
+    - 비디오 생성/변환: 느린 push-in 모션으로 제품 집중도 강화
+    - 오디오 생성(TTS): 제품 등장 타이밍에 맞는 문장 연결
+- **입력 프롬프트(원문)**:  
+    `hero shot of a premium wellness drink can on reflective black surface, blue purple soft light, centered composition, luxury cinematic product ad, clean background, high realism, 16:9`
+- **출력 결과 요약(한 줄)**:  
+    브랜드의 메인 비주얼로 사용 가능한 제품 중심 컷 확보
+- **생성 결과 파일명 또는 링크**:  
+    `LD_s02_key.png`  
+    `LD_s02_motion.mp4`  
+    `LD_narration_02.wav`
+
+---
+
+### Scene 03
+
+- **씬 번호 / 씬 길이(초)**: Scene 03 / 2.5초
+- **목표 메시지(한 문장)**: 제품이 주는 효능보다 ‘정서적 정리감’을 전달
+- **화면 구성(구도/피사체/배경/텍스트 유무)**:  
+    제품을 손에 든 장면 또는 캔 옆에 놓인 잔잔한 빛, 배경이 한층 안정된 느낌으로 바뀜. 인물은 얼굴 대신 손/실루엣 위주. 텍스트 없음.
+- **내레이션(또는 화면 카피)**:  
+    “한 모금이면, 마음은 조금 더 조용해진다.”
+- **사용 도구(이미지/비디오/오디오)와 사용 목적**:
+    - 이미지 생성: 감정 전환이 보이는 서브 키 비주얼 생성
+    - 비디오 생성/변환: 부드러운 카메라 이동으로 안정감 표현
+    - 오디오 생성(TTS): 내레이션 감정 고조
+    - 선택 사항: 아주 약한 유리잔/숨 고르기 효과음 추가
+- **입력 프롬프트(원문)**:  
+    `calm night routine moment, hand holding premium drink can, soft ambient glow, peaceful cinematic mood, elegant composition, minimal luxury ad, realistic lighting, 16:9`
+- **출력 결과 요약(한 줄)**:  
+    제품 섭취 후 감정이 정돈되는 분위기 전환 컷 확보
+- **생성 결과 파일명 또는 링크**:  
+    `LD_s03_key.png`  
+    `LD_s03_motion.mp4`  
+    `LD_narration_03.wav`
+
+---
+
+### Scene 04
+
+- **씬 번호 / 씬 길이(초)**: Scene 04 / 3.0초
+- **목표 메시지(한 문장)**: 브랜드명, 슬로건, CTA를 분명하게 남겨 광고로 완성하기
+- **화면 구성(구도/피사체/배경/텍스트 유무)**:  
+    제품이 오른쪽 또는 중앙에 배치된 엔드카드. 배경은 깨끗한 딥네이비 그라데이션. 왼쪽 또는 중앙에 브랜드명, 슬로건, CTA 배치.  
+    **텍스트는 최종 편집 툴에서 오버레이 삽입**.
+- **내레이션(또는 화면 카피)**:  
+    “LUMEN DROP. 오늘의 끝을, 더 부드럽게.”
+- **사용 도구(이미지/비디오/오디오)와 사용 목적**:
+    - 이미지 생성: 엔드카드용 제품 배경 비주얼 생성
+    - 편집 툴: 브랜드명/슬로건/CTA를 선명하게 삽입
+    - 오디오 생성(TTS): 브랜드명 마무리 내레이션
+- **입력 프롬프트(원문)**:  
+    `premium product end card background, luxury navy gradient, soft glow, elegant minimalist product placement, cinematic ad layout, realistic, 16:9`
+- **출력 결과 요약(한 줄)**:  
+    브랜드 엔드카드용 안정적인 마무리 비주얼 확보
+- **생성 결과 파일명 또는 링크**:  
+    `LD_s04_endcard.png`  
+    `LD_narration_04.wav`  
+    `LD_final.mp4`
+
+---
+
+## 프롬프트 수정 전/후 기록
+
+### Scene 02 프롬프트 개선 로그
+
+- **대상 씬**: Scene 02
+- **수정 전 프롬프트**:  
+    `premium drink on table at night, cinematic, beautiful lighting`
+- **수정 전 문제점**:  
+    제품이 너무 작게 보이거나, 일반 라이프스타일 컷처럼 나와서 광고의 핵심 제품 샷으로 쓰기 어려웠다.
+- **수정 후 프롬프트**:  
+    `hero shot of a premium wellness drink can on reflective black surface, blue purple soft light, centered composition, luxury cinematic product ad, clean background, high realism, 16:9`
+- **수정 이유**:  
+    “hero shot”, “centered composition”, “reflective black surface”, “clean background”를 추가해 제품 중심 구도와 프리미엄 광고 느낌을 강화했다.
+- **결과 변화**:  
+    제품 존재감이 커졌고, 장면의 용도가 명확해져 브랜드 메인 컷으로 사용 가능해졌다.
+
+---
+
+## 사용 도구 목록 및 선택 이유
+
+|구분|도구명|사용 목적|선택 이유|
+|---|---|---|---|
+|이미지 생성|GPT Image 계열 또는 유사 이미지 생성 AI|키 비주얼/제품컷/엔드카드 배경 생성|제품 광고 컷과 편집형 이미지 제작에 적합. 다만 핵심 텍스트는 후편집 권장 [OpenAI API Documentation](https://developers.openai.com/api/docs/guides/image-generation)|
+|비디오 생성/변환|Gemini Omni Flash 또는 유사 짧은 영상 생성 AI|이미지 기반 짧은 모션 컷 생성|짧은 광고 컷 제작과 빠른 반복 수정에 유리 [ai.google.dev](https://ai.google.dev/gemini-api/docs/video)|
+|비디오 대체|Veo 3.1 또는 유사 도구|확장/프레임 제어/오디오 통합 필요 시 대체|네이티브 오디오와 프레임 제어 기능 강점 [ai.google.dev](https://ai.google.dev/gemini-api/docs/video)|
+|오디오 생성|ElevenLabs TTS 또는 유사 TTS|광고 내레이션 생성|자연스러운 억양, 속도, 감정 표현에 강점 [elevenlabs.io](https://elevenlabs.io/docs/overview/capabilities/text-to-speech)|
+|편집 도구|Premiere Pro / CapCut / DaVinci Resolve 중 1개|컷 편집, 자막, 엔드카드 텍스트 삽입|과제 허용 범위 내 통합 편집 용도|
+
+---
+
+## 대체 도구 목록
+
+- **이미지 대체 도구**: Midjourney, Flux 계열, Stable Diffusion 계열
+- **비디오 대체 도구**: Kling, Runway, Pika
+- **오디오 대체 도구**: Suno, Udio, ElevenLabs Music
+- **TTS 대체 도구**: Google TTS 계열, Minimax TTS 계열
+
+---
+
+## 최종 출력 정보
+
+- **최종 영상 파일명**: `LUMEN_DROP_brand_ad_v1.mp4`
+- **총 길이**: 10초
+- **해상도**: 1920x1080 권장, 최소 1280x720
+- **프레임레이트**: 24fps 또는 30fps
+- **비디오 코덱 / 오디오 코덱**: H.264 / AAC
+- **최종 편집 방식 요약**:  
+    4개의 짧은 장면을 컷 편집으로 연결하고, 내레이션을 타이밍에 맞춰 배치한다. Scene 04에는 브랜드명, 슬로건, CTA를 명확한 텍스트 오버레이로 삽입한다.
+- **브랜드 인지 장치 포함 여부**: 예
+    - 브랜드명: LUMEN DROP
+    - 슬로건: 하루의 끝을 정리하는 한 방울의 루틴
+    - CTA: Tonight, reset with LUMEN DROP
+
+---
+
+
+| 항목          | 값                   |
+| ----------- | ------------------- |
+| 재생시간        | **10.0초**           |
+| 해상도         | **1280 × 720 (HD)** |
+| 화면비         | **16:9**            |
+| 프레임레이트(FPS) | **30fps**           |
+| 비디오 코덱      | **H.264 (libx264)** |
+| 오디오 코덱      | **AAC**             |
+| 파일 형식       | **MP4**             |
